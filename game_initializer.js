@@ -10,14 +10,12 @@ var ticTacToeKeyPressMapper = {
     122: 6, 120: 7, 99: 8
 };
 
-var ticTacToeAllowedKeys = Object.keys(ticTacToeKeyPressMapper);
-
 $("[data-action='initOnePlayerGame']").on('click', function(event) {
     event.stopPropagation();
     $('#modalBackground').css('display','none');
     var playerOne = new Player('Player 1', true, true, 'O', 'playerOne', true);
     var playerTwo = new Player('Computer', false, false, 'X', 'playerTwo', false);
-    window.gameInstance = new TicTacToe(playerOne, playerTwo, 'AI')
+    window.gameInstance = new TicTacToe(playerOne, playerTwo, 'AI');
 });
 
 $("[data-action='initTwoPlayersGame']").on('click', function(event) {
@@ -25,7 +23,7 @@ $("[data-action='initTwoPlayersGame']").on('click', function(event) {
     $('#modalBackground').css('display','none');
     var playerOne = new Player('Player 1', true, true, 'O', 'playerOne', true);
     var playerTwo = new Player('Player 2', false, false, 'X', 'playerTwo', false);
-    window.gameInstance = new TicTacToe(playerOne, playerTwo, 'Human')
+    window.gameInstance = new TicTacToe(playerOne, playerTwo, 'Human');
 });
 
 $('#gameFields input').on('click', function(event) {
@@ -35,11 +33,9 @@ $('#gameFields input').on('click', function(event) {
 
 $(document).on('keypress', function(event) {
     event.stopPropagation();
-
-    // if (!ticTacToeAllowedKeys.includes(parseInt(event.keyCode))) {
-    //     console.log('spierdalaj');
-    //     return
-    // }
+    if (!(ticTacToeKeyPressMapper.includesKey(event.keyCode))) {
+        return;
+    }
 
     initializeAction(ticTacToeKeyPressMapper[event.keyCode]);
 });
