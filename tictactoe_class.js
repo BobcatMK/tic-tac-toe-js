@@ -30,6 +30,11 @@ window.TicTacToe = (function() {
 
         if (resultOfAction === 'continue') {
             this.scoreBoard.changeActingPlayer(actingPlayer, idlePlayer);
+            //here goes logic responsible for checking if player two is AI and making it's move inside
+            //below function. Then in that function it's making call to performAction, but also
+            //this method 'performAction' should have knowledge about that AI is making move, and if game continues
+            //then it should run AI action again.
+            
         } else if (resultOfAction === 'tie') {
             this.scoreBoard.changeTimesGameTied();
             this.scoreBoard.clear();
