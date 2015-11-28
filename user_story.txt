@@ -1,0 +1,18 @@
+Podczas klika na polu gry:
+1. Sprawdź czy ktoś nie wygrał
+    1.1 Jeżeli ktoś wygrał to:
+        1.1.1 Inkrementuj timesWon tego gracza
+        1.1.2 Zmień jego charUsed na przeciwny
+        1.1.3 Zmień charUsed przeciwnika na char gracza który wygrał
+        1.1.4 Zmień tło scenariusza wygrywającego na delikatny zielony kolor po kliku gdziekolwiek rozpocznij kolejną rozgrywkę
+    1.2 Jeżeli był remis to:
+        1.2.1 Inkrementuj timesGameTied instancji TicTacToe
+        RESZTE WYKONAJ JAK W PODPUNKCIE 1.1
+
+2. Zadecyduj czy postawić nowy char w danym polu
+    2.1 Jeżeli pole jest zajęte nie rób nic
+    2.2 Jeżeli pole nie jest zajęte
+        2.2.1 Wstaw w pole charUsed gracza, który posiada property isTurn ustawione na true.
+        2.2.2 Zamień pole isTurn tego gracza na false
+        2.2.3 Zamień pole isTurn przeciwnego gracza na false
+        2.2.4 Ustaw TicTacToe.gameField wstawiajac string w odpowiednie miejsce

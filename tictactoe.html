@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Tac Toe Game</title>
+        <link rel="stylesheet" type="text/css" href="tictactoe.css" />
+        <script src="jquery-2.1.4.min.js"></script>
+        
+    </head>
+
+    <body>
+
+        <div id="modalBackground">
+            <div id="gameMenuModal">
+                <h2><b>TIC-TAC-TOE</b></h3>
+                <div>Game menu:</div>
+                <br /><br /><br />
+                <div class='menu-option' data-action='initOnePlayerGame'>One player</div>
+                <br />
+                <div class='menu-option' data-action='initTwoPlayersGame'>Two players</div>
+                <br /><br /><br />
+                <small>Copyright &copy; Mateusz Kilan 2015</small>
+            </div>
+        </div>
+
+
+        <div id='gameFields'>
+                <input id="0" readonly /><input id="1" readonly /><input id="2" readonly />
+                <br />
+                <input id="3" readonly /><input id="4" readonly /><input id="5" readonly />
+                <br />
+                <input id="6" readonly /><input id="7" readonly /><input id="8" readonly />
+        </div>
+
+        <div id='score-board'>
+            <br />
+            <span id='playerOne'>
+                <span>[</span>
+                <span class='char-used'></span>
+                <span>]</span>
+                &#32;
+                <span class='arrow-indicator'>>></span>
+                <span id='playerOneName'></span>
+                <span id='playerOneScore'></span>
+            </span>
+            <br />
+            <span id='playerTwo'>
+                <span>[</span>
+                <span class='char-used'></span>
+                <span>]</span>
+                &#32;
+                <span class='arrow-indicator'>>></span>
+                <span id='playerTwoName'></span>
+                <span id='playerTwoScore'></span>
+            </span>
+            <br />
+            <span>Tied:</span>
+            <span id='numberOfTies'></span>
+        </div>
+
+    </body>
+    <script src="object_values_extensions.js"></script>
+    <script src="game_initializer.js"></script>
+    <script src="tictactoe_class.js"></script>
+    <script src="player_class.js"></script>
+    <script src="board_field_class.js"></script>
+    <script src="winner_checker_class.js"></script>
+    <script src="score_board_class.js"></script>
+</html
