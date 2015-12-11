@@ -1,14 +1,15 @@
 'use strict';
 
 window.Player = (function() {
-    function Player(name, isTurn, isHuman, charUsed, htmlId, startedGame) {
-        this.name = name;
-        this.isTurn = isTurn;
-        this.isHuman = isHuman;
+    function Player(properties) {
+        this.name = properties.name;
+        this.isTurn = properties.isTurn;
+        this.isHuman = properties.isHuman;
         this.timesWon = 0;
-        this.charUsed = charUsed;
-        this.htmlId = htmlId;
-        this.startedGame = startedGame;
+        this.charUsed = properties.charUsed;
+        this.htmlId = properties.htmlId;
+        this.startedGame = properties.startedGame;
+        this.gameFields = properties.gameFields;
     }
 
     Player.prototype.incrementTimesWon = function() {
@@ -22,6 +23,12 @@ window.Player = (function() {
         } else {
             this.startedGame = true;
             this.isTurn = true;
+        }
+    };
+
+    Player.prototype.initiateAI = function() {
+        if (!this.isHuman) {
+            this.AI = new AI(this.charUsed, this.gameFields);
         }
     };
 

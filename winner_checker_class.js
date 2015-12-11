@@ -2,17 +2,7 @@
 
 window.WinnerChecker = (function() {
     function WinnerChecker(playerOne, playerTwo, gameFields) {
-        this.winScenarios = [
-            [0,1,2],
-            [3,4,5],
-            [6,7,8],
-            [0,3,6],
-            [1,4,7],
-            [2,5,8],
-            [0,4,8],
-            [2,4,6]
-        ];
-
+        extendInstanceWithProperty(this, 'winScenarios', Mixin.winScenarios)
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
         this.gameFields = gameFields;

@@ -21,3 +21,13 @@ Object.prototype.includesKey = function(keyToLookFor) {
 
     return false;
 }
+
+Array.prototype.clone = function() {
+    if (this.length) {
+        return this.map(function(item) {
+            return item;
+        });
+    } else {
+        return [];
+    }
+}

@@ -1,29 +1,15 @@
 'use strict';
 
-var ticTacToeKeyPressMapper = {
-    55: 0, 56: 1, 57: 2,
-    52: 3, 53: 4, 54: 5,
-    49: 6, 50: 7, 51: 8,
-
-    113: 0, 119: 1, 101: 2,
-    97: 3, 115: 4, 100: 5,
-    122: 6, 120: 7, 99: 8
-};
-
 $("[data-action='initOnePlayerGame']").on('click', function(event) {
     event.stopPropagation();
     $('#modalBackground').css('display','none');
-    var playerOne = new Player('Player 1', true, true, 'O', 'playerOne', true);
-    var playerTwo = new Player('Computer', false, false, 'X', 'playerTwo', false);
-    window.gameInstance = new TicTacToe(playerOne, playerTwo, 'AI');
+    window.gameInstance = new TicTacToe({name: 'Player 1', isHuman: true}, {name: 'Computer', isHuman: false});
 });
 
 $("[data-action='initTwoPlayersGame']").on('click', function(event) {
     event.stopPropagation();
     $('#modalBackground').css('display','none');
-    var playerOne = new Player('Player 1', true, true, 'O', 'playerOne', true);
-    var playerTwo = new Player('Player 2', false, false, 'X', 'playerTwo', false);
-    window.gameInstance = new TicTacToe(playerOne, playerTwo, 'Human');
+    window.gameInstance = new TicTacToe({name: 'Player 1', isHuman: true}, {name: 'Player 2', isHuman: true});
 });
 
 $('#gameFields input').on('click', function(event) {
@@ -33,11 +19,11 @@ $('#gameFields input').on('click', function(event) {
 
 $(document).on('keypress', function(event) {
     event.stopPropagation();
-    if (!(ticTacToeKeyPressMapper.includesKey(event.keyCode))) {
+    if (!(Mixin.ticTacToeKeyPressMapper.includesKey(event.keyCode))) {
         return;
     }
 
-    initializeAction(ticTacToeKeyPressMapper[event.keyCode]);
+    initializeAction(Mixin.ticTacToeKeyPressMapper[event.keyCode]);
 });
 
 function initializeAction(boardFieldId) {

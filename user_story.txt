@@ -15,4 +15,25 @@ Podczas klika na polu gry:
         2.2.1 Wstaw w pole charUsed gracza, który posiada property isTurn ustawione na true.
         2.2.2 Zamień pole isTurn tego gracza na false
         2.2.3 Zamień pole isTurn przeciwnego gracza na false
-        2.2.4 Ustaw TicTacToe.gameField wstawiajac string w odpowiednie miejsce
+        2.2.4 Ustaw TicTacToe.gameField wstawiajac string w odpowiednie miejsce\
+
+
+Jak musi działać sztuczna inteligencja:
+1. Musi analizowac ruch przeciwnika, sprawdza czy przeciwnik moze wygrac:
+    JEZELI TAK
+        PRZECIWNIK MOGE WYGRAC W JEDNYM MIEJSCU W NASTEPNYM SWOIM RUCHU:
+            Sztuczna inteligencja blokuje jego ruch
+        PRZECIWNIK MOZE WYGRAC W DWOCH MIEJSCACH W SWOIM NASTEPNYM RUCHU:
+            Sztuczna inteligencja losuje jeden z dwoch wariantow, przed ktorymi musi sie bronic i czeka na pogrom
+            (no chyba ze trafilo na idiote i nie chce wygrac)
+    JEZELI NIE
+        SI NIE MA ZAZNACZONEGO ZADNEGO POLA
+            SI ZACZYNA GRE
+                Sztuczna inteligencja wybiera jedno z pól w rogach pola gry numery [0,2,6,8]
+            SI NIE ZACZYNA GRY
+                ŚRODEK POLA NIE JEST ZAZNACZONY
+                    SI stawia znak w środek pola gry
+                SRODEK POLA JEST ZAZNACZONY
+                    SI stawia znak w rogach pola gry [0,2,6,8]
+        SI MA ZAZNACZONE POLE GRY
+            
