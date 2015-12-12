@@ -4,7 +4,7 @@ window.AI = (function() {
     function AI(charUsed, gameFields) {
         extendInstanceWithProperty(this, 'gameFields', gameFields);
         extendInstanceWithProperty(this, 'winScenarios', Mixin.winScenarios);
-        extendInstanceWithProperty(this. 'charUsed', charUsed);
+        extendInstanceWithProperty(this, 'charUsed', charUsed);
     };
 
     AI.prototype.performAction = function() {

@@ -10,6 +10,8 @@ window.Player = (function() {
         this.htmlId = properties.htmlId;
         this.startedGame = properties.startedGame;
         this.gameFields = properties.gameFields;
+        
+        this.initiateAI();
     }
 
     Player.prototype.incrementTimesWon = function() {
